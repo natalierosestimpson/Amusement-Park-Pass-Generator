@@ -28,6 +28,9 @@
                                         <state key="normal" title="Guest">
                                             <color key="titleColor" red="0.1207405456" green="0.17599254619999999" blue="0.31821065990000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <connections>
+                                            <action selector="chooseGuest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2M6-ew-9fR"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C3k-iX-KvX">
                                         <rect key="frame" x="248" y="0.0" width="240" height="51"/>
@@ -36,6 +39,9 @@
                                         <state key="normal" title="Employee">
                                             <color key="titleColor" red="0.1207405456" green="0.17599254619999999" blue="0.31821065990000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <connections>
+                                            <action selector="chooseEmployee:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c4c-rc-tGF"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJK-Wh-tqy">
                                         <rect key="frame" x="496" y="0.0" width="240" height="51"/>
@@ -45,6 +51,9 @@
                                         <state key="normal" title="Manager">
                                             <color key="titleColor" red="0.1207405456" green="0.17599254619999999" blue="0.31821065990000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <connections>
+                                            <action selector="chooseManager:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Esr-rD-Hpq"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2x-yk-mjV">
                                         <rect key="frame" x="744" y="0.0" width="240" height="51"/>
@@ -53,9 +62,12 @@
                                         <state key="normal" title="Vendor">
                                             <color key="titleColor" red="0.1207405456" green="0.17599254619999999" blue="0.31821065990000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <connections>
+                                            <action selector="chooseVendor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tea-8L-cjY"/>
+                                        </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.094715289771556854" green="0.25919270515441895" blue="0.46580177545547485" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.93383169420000001" green="0.91123326189999998" blue="0.70949853419999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7C8-jP-mES" userLabel="Generate">
                                 <rect key="frame" x="20" y="1176" width="984" height="90"/>
@@ -407,7 +419,6 @@
                         <outlet property="stateLabel" destination="vpc-lr-zbu" id="Yhv-Y0-UjC"/>
                         <outlet property="streetAddressField" destination="YDF-e1-Zw1" id="IDt-Fo-dTi"/>
                         <outlet property="streetAddressLabel" destination="fAf-FG-sT0" id="POu-mj-k6G"/>
-                        <outlet property="streetLabel" destination="fAf-FG-sT0" id="mUs-kn-52R"/>
                         <outlet property="subTypeFour" destination="Fvx-wK-gFH" id="OVe-7A-pUN"/>
                         <outlet property="subTypeOne" destination="9fB-8W-ZmY" id="WsC-yK-RZb"/>
                         <outlet property="subTypeThree" destination="UsU-bX-lYm" id="e0C-1i-Tgo"/>

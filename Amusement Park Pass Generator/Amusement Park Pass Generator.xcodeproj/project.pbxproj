@@ -21,6 +21,7 @@
 		8BE227722195A08400013563 /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE227712195A08400013563 /* Vendor.swift */; };
 		8BE227742195A0BE00013563 /* SwipeMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE227732195A0BE00013563 /* SwipeMethods.swift */; };
 		8BE227762195A12700013563 /* TestArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE227752195A12700013563 /* TestArea.swift */; };
+		8BE227782199E58E00013563 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE227772199E58E00013563 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		8BE227712195A08400013563 /* Vendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vendor.swift; sourceTree = "<group>"; };
 		8BE227732195A0BE00013563 /* SwipeMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeMethods.swift; sourceTree = "<group>"; };
 		8BE227752195A12700013563 /* TestArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestArea.swift; sourceTree = "<group>"; };
+		8BE227772199E58E00013563 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				8BE227712195A08400013563 /* Vendor.swift */,
 				8BE2276D21959EED00013563 /* Access.swift */,
 				8BE227732195A0BE00013563 /* SwipeMethods.swift */,
+				8BE227772199E58E00013563 /* Colors.swift */,
 				8BE227752195A12700013563 /* TestArea.swift */,
 				8BDBE4622187B0C300669857 /* Main.storyboard */,
 				8BDBE4652187B0C900669857 /* Assets.xcassets */,
@@ -163,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BE227742195A0BE00013563 /* SwipeMethods.swift in Sources */,
+				8BE227782199E58E00013563 /* Colors.swift in Sources */,
 				8BE2276821959DB400013563 /* Guest.swift in Sources */,
 				8BE227762195A12700013563 /* TestArea.swift in Sources */,
 				8BE2276E21959EED00013563 /* Access.swift in Sources */,

@@ -1,5 +1,19 @@
 import UIKit
 
+/* TO DO LIST
+ 
+ - add second view controller
+ - fix keyboard so that when you tap on the screen it disappears
+ - fix keyborad so that bottom bits con be complteded
+ -fix lay out so that it works for smaller ipad sizes
+ -add two new entrant types
+ -add functions to hide certain fields
+ 
+ 
+ */
+
+
+
 // ***********TEST AREA***********
  
  let swipeMethods = SwipeMethods()
