@@ -1,6 +1,6 @@
 import UIKit
 
-//define methods that can be run when a pass is swiped eg to check whether access is granted or whether its teh entrant's birthday
+//define methods that can be run when a pass is swiped eg to check whether access is granted or whether its the entrant's birthday
 
 class SwipeMethods {
     
