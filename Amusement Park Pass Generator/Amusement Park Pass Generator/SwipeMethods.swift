@@ -61,5 +61,11 @@ class SwipeMethods {
         else { return "entrant is entitled to a \(pass.discountAccess.discountOnMerchandise*100)% discount on Merchandice"}
     }
     
+    func fullName(from pass: EntrantPass) -> String {
+        guard let firstName = pass.information?.firstName, let lastName = pass.information?.lastName else{ return  "name unknown"}
+        return  "\(firstName) \(lastName)"
+    }
+    
+    
 }
 

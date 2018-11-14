@@ -4,7 +4,8 @@ import UIKit
 enum EntrantType {
     case guest
     case employee
-    //case vendor
+    case manager
+    case vendor
 }
 
 //define the data types that can be stored for an entrant
@@ -28,6 +29,7 @@ enum EntrantInformationError : Error {
     case stateMissing
     case zipCodeMissing
     case socialSecurityNumberMissing
+    case socialSecurityNumberNotNeeded 
     case dateOfBirthMissing
 }
 
@@ -38,8 +40,9 @@ struct EntrantPass {
     var discountAccess: DiscountAccess
     var information: EntrantInformation?
     var position: ManagementTier?
-    //var dateOfVendorVisit: DateComponents?
-    //var vendorCompany: String?
+    var dateOfVendorVisit: DateComponents?
+    var vendorCompany: vendorCompany?
+    var projectNumber: String?
 }
 
 //define the Entrant super class
@@ -62,7 +65,24 @@ class Entrant {
         return DiscountAccess(discountOnFood: 0.0, discountOnMerchandise: 0.0)
     }
     
-    func generatePass() -> EntrantPass {
-        return EntrantPass(areaAccess: self.areaAccess(), rideAccess: self.rideAccess(), discountAccess: self.discountAccess(), information: nil, position: nil)
+    func validateEntrantInformation() {
+        
     }
+    
+    func generatePass() -> EntrantPass {
+        return EntrantPass(areaAccess: self.areaAccess(), rideAccess: self.rideAccess(), discountAccess: self.discountAccess(), information: nil, position: nil, dateOfVendorVisit: nil, vendorCompany: nil, projectNumber: nil)
+    }
+    
+    func type() -> String {
+        switch entrantType {
+        case .guest : return "Guest"
+        case .employee : return "Employee"
+        case .manager : return "Manager"
+        case .vendor : return "Vendor"
+        }
+    }
+    
+    
 }
+
+

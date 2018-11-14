@@ -7,7 +7,7 @@ import UIKit
  - fix keyborad so that bottom bits con be complteded
  -fix lay out so that it works for smaller ipad sizes
  -add two new entrant types
- -add functions to hide certain fields
+
  
  
  */
@@ -15,7 +15,7 @@ import UIKit
 
 
 // ***********TEST AREA***********
- 
+ /*
  let swipeMethods = SwipeMethods()
  
  let defaultDave = Entrant(entrantType: .employee)
@@ -47,3 +47,4 @@ import UIKit
  
 
 
+*/

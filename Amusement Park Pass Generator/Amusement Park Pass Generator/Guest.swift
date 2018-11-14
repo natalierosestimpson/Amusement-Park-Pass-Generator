@@ -1,10 +1,10 @@
 //define the subcategories of Guest
 enum GuestType {
-    case classic
+    case adult
     case vip
     case freeChild
-    //case seasonPass
-    //case senior
+    case seasonPass
+    case senior
 }
 
 
@@ -13,10 +13,9 @@ enum GuestType {
 class Guest: Entrant {
     var guestType: GuestType
     
-    
-    init (entrantType: EntrantType, guestType: GuestType) {
+    init (guestType: GuestType) {
         self.guestType = guestType
-        super.init(entrantType: entrantType)
+        super.init(entrantType: .guest)
     }
     
     override func areaAccess () -> AreaAccess {
@@ -25,16 +24,16 @@ class Guest: Entrant {
     
     override func rideAccess() -> RideAccess {
         switch guestType {
-        case .vip/*, .senior, .seasonPass*/: return RideAccess(accessAllRides: true, skipAllRideLines: true)
+        case .vip, .senior, .seasonPass: return RideAccess(accessAllRides: true, skipAllRideLines: true)
         default: return RideAccess(accessAllRides: true, skipAllRideLines: false)
         }
 }
 
     override func discountAccess() -> DiscountAccess {
         switch guestType {
-        case .classic, .freeChild : return DiscountAccess(discountOnFood: 0.0, discountOnMerchandise: 0.0)
-        case .vip/*, .seasonPass*/: return DiscountAccess(discountOnFood: 0.10, discountOnMerchandise: 0.20)
-            //case .senior: return DiscountAccess(discountOnFood: 0.10, discountOnMerchandise: 0.10)
+        case .adult, .freeChild : return DiscountAccess(discountOnFood: 0.0, discountOnMerchandise: 0.0)
+        case .vip, .seasonPass: return DiscountAccess(discountOnFood: 0.10, discountOnMerchandise: 0.20)
+        case .senior: return DiscountAccess(discountOnFood: 0.10, discountOnMerchandise: 0.10)
         }
     }
 }
