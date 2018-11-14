@@ -90,17 +90,13 @@ class ViewController: UIViewController {
     }
 
     
-    //disable text field
-    func disable(_ field: UITextField, withLabel label:UILabel ) {
-        field.isUserInteractionEnabled = false
-        field.backgroundColor = subtleColor
-        label.textColor = subtleColor
-    }
     
+    //clear text fiels
     func clearField(_ field: UITextField) {
         field.text = ""
     }
     
+    //clear all text fields
     func clearAllFields() {
         clearField(dobField)
         clearField(ssnField)
@@ -117,7 +113,14 @@ class ViewController: UIViewController {
         ssnField.text = "###-##-####"
         projectField.text = "######"
     }
-    
+
+    //disable text field
+    func disable(_ field: UITextField, withLabel label:UILabel ) {
+        field.isUserInteractionEnabled = false
+        field.backgroundColor = subtleColor
+        label.textColor = subtleColor}
+
+   //disable all text fields
     func disableAllFields() {
         disable(dobField, withLabel: dobLabel)
         disable(ssnField, withLabel: ssnLabel)
@@ -131,12 +134,14 @@ class ViewController: UIViewController {
         disable(zipField, withLabel: zipLabel)
     }
     
+    //enable a text field
     func enable(_ field: UITextField, withLabel label:UILabel ) {
         field.isUserInteractionEnabled = true
         field.backgroundColor = .white
         label.textColor = obviousColor
     }
     
+    //enable all text fields
     func enableAllFields() {
         enable(dobField, withLabel: dobLabel)
         enable(ssnField, withLabel: ssnLabel)
@@ -150,16 +155,19 @@ class ViewController: UIViewController {
         enable(zipField, withLabel: zipLabel)
     }
     
+    //enable only the date of birth text field
     func enableDobField() {
         enable(dobField, withLabel: dobLabel)
     }
     
+    //enable only the personal dat text fields
     func enablePersonalFields() {
         enable(dobField, withLabel: dobLabel)
         enable(firstNameField, withLabel: firstNameLabel)
         enable(lastNameField, withLabel: lastNameLabel)
     }
     
+    //enable only the address text fields
     func enableAddressFields() {
         enable(streetAddressField, withLabel: streetAddressLabel)
         enable(cityField, withLabel: cityLabel)
@@ -167,7 +175,7 @@ class ViewController: UIViewController {
         enable(zipField, withLabel: zipLabel)
     }
     
-    
+    //resets the storyboard scene to initial view
     func initialEntrantType() {
         guestButton.setTitleColor(subtleColor, for: .normal)
         employeeButton.setTitleColor(subtleColor, for: .normal)
@@ -177,6 +185,7 @@ class ViewController: UIViewController {
         disableAllFields()
     }
     
+    //resets the storyboard scene to initial view
     func showAllSubTypesAsSubtle() {
         subTypeOne.setTitleColor(subtleColorLight, for: .normal)
         subTypeTwo.setTitleColor(subtleColorLight, for: .normal)
@@ -185,6 +194,7 @@ class ViewController: UIViewController {
         subTypeFive.setTitleColor(subtleColorLight, for: .normal)
     }
     
+     //resets the storyboard scene to initial view
     func initialSubType() {
         showAllSubTypesAsSubtle()
         subTypeOne.setTitleColor(obviousColorLight, for: .normal)
@@ -196,6 +206,7 @@ class ViewController: UIViewController {
         subTypeFive.isHidden = false
     }
     
+    //updates formatting when Guest is selected
     func selectGuest() {
         initialEntrantType()
         initialSubType()
@@ -210,6 +221,7 @@ class ViewController: UIViewController {
         subTypeFive.setTitle("Season Pass", for: .normal)
     }
     
+    //the functins below choose the correct text fields for the relevant Guest type
     func selectChildGuest() {
         enableDobField()
     }
@@ -231,6 +243,7 @@ class ViewController: UIViewController {
         enableAddressFields()
     }
     
+    //updates formatting when Employee is selected
     func selectEmployee() {
         initialEntrantType()
         initialSubType()
@@ -245,18 +258,20 @@ class ViewController: UIViewController {
         subTypeFive.isHidden = true
     }
     
+    //shows relevant text fields for a non contract employee
     func selectNonContractEmployee() {
         enableAllFields()
         disable(projectField, withLabel: projectLabel)
         disable(companyField, withLabel: companyLabel)
     }
     
+    //shows relevant text fields for a contract employee
     func selectContractEmployee() {
         enableAllFields()
         disable(companyField, withLabel: companyLabel)
     }
 
-
+    //update formtting when a Manager is selected
     func selectManager() {
         initialEntrantType()
         initialSubType()
@@ -271,6 +286,7 @@ class ViewController: UIViewController {
         subTypeFive.isHidden = true
     }
     
+    //updates formatting when a vendor is selected
     func selectVendor() {
         initialEntrantType()
         initialSubType()
@@ -282,13 +298,14 @@ class ViewController: UIViewController {
         subTypeTwo.setTitle("Orkin", for: .normal)
         subTypeThree.setTitle("Fedex", for: .normal)
         subTypeFour.setTitle("NW Electrical", for: .normal)
-        
+        subTypeFive.isHidden = true
         
         companyField.text = "Acme"
-        
     }
     
-    //automatically populates data using the data provided in the SampleEntrantData file
+    let exampleData = ExampleData()
+    
+    //automatically populates data using the data provided in the ExampleData class
     func populateData() {
         let originalCompanyName = companyField.text
         clearAllFields()
@@ -357,6 +374,7 @@ class ViewController: UIViewController {
         
     }
     
+    //converts text in DD/MM/YYYY format to Date Components
     func convertTextToDate(_ date: String) -> DateComponents{
         let day = Int(date.prefix(2))
         let month = Int(date.suffix(7).prefix(2))
@@ -364,11 +382,13 @@ class ViewController: UIViewController {
         return DateComponents(year: year, month: month, day: day)
     }
     
+    //converts the text in the date of birth field to date components
     func currentDob() -> DateComponents {
         guard let dob = dobField.text else {fatalError()}
         return convertTextToDate(dob)
     }
     
+   // returns a struct containing the entrant information entered into the data fields
     func currentEntrantInformation() -> EntrantInformation {
         var entrantInformation = EntrantInformation()
         
@@ -384,22 +404,26 @@ class ViewController: UIViewController {
         return  entrantInformation
     }
     
+    //returns the first name entered
     func currentFirstName() -> String {
         guard let name = firstNameField.text else {fatalError()}
         return name    }
     
+     //returns the last name entered
     func currentLastName() -> String {
         guard let name = lastNameField.text else {fatalError()}
         return name    }
     
+     //returns the project number entered
     func currentProjectNumber() -> String {
         guard let number = projectField.text else {fatalError()}
         return number    }
     
-    
+    //initialise the currentEntrant and currentPass variables
     var currentEntrant: Entrant = Entrant(entrantType: .guest)
     var currentPass: EntrantPass = Entrant(entrantType: .guest).generatePass()
     
+    //create an instance of Guest or a subclass of Guest
     func createCurrentGuest()  {
         if subTypeOne.titleLabel?.text != "Child" {fatalError()}
         else{
@@ -411,10 +435,9 @@ class ViewController: UIViewController {
             else if subTypeFive.titleColor(for: .normal) == obviousColorLight {currentEntrant = SeasonGuest(entrantInformation: currentEntrantInformation())}
             else {fatalError()}
         }
-        
     }
     
-    
+     //create an instance of Employee or a subclass of Employee
     func createCurrentEmployee()  {
         if subTypeOne.titleLabel?.text != "Food" {fatalError()}
         else{
@@ -426,6 +449,7 @@ class ViewController: UIViewController {
         }
     }
     
+    //create an instance of Manager or a subclass of Manager
     func createCurrentManager()  {
         if subTypeOne.titleLabel?.text != "Shift Mgr" {fatalError()}
         else{
@@ -436,6 +460,7 @@ class ViewController: UIViewController {
         }
     }
     
+    //create an instance of Vendor or a subclass of Vendor
     func createCurrentVendor() {
         if subTypeOne.titleLabel?.text != "Acme" {fatalError()}
         else{
@@ -449,6 +474,7 @@ class ViewController: UIViewController {
         
     }
     
+    //create an instance of a subclass of Entrant
     func createCurrentEntrant()
     {
         if guestButton.titleColor(for: .normal) == obviousColor {
@@ -461,7 +487,7 @@ class ViewController: UIViewController {
     }
     
     
-   
+   //ACTIONS
     
     @IBAction func chooseGuest(_ sender: Any) {
         selectGuest()
