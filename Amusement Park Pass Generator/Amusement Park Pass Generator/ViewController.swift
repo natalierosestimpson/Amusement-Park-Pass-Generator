@@ -51,45 +51,26 @@ class ViewController: UIViewController {
     
     //connect bottom buttons
     @IBOutlet weak var generatePassButton: UIButton!
+    
+    @IBOutlet weak var checkDataButton: UIButton!
     @IBOutlet weak var populateDataButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        configureTextFields()
+        checkDataButton.isHidden = false
+        generatePassButton.isHidden = true
+        populateDataButton.isHidden = false
+        enableAllFields()
+
         selectGuest()
     }
-        
     
-    private func configureTextFields() {
-        dobField.delegate = self
-        ssnField.delegate = self
-        projectField.delegate = self
-        firstNameField.delegate = self
-        lastNameField.delegate = self
-        companyField.delegate = self
-        streetAddressField.delegate = self
-        cityField.delegate = self
-        stateField.delegate = self
-        zipField.delegate = self
-    }
-   
     let subtleColor = Colors().subtleColor
     let subtleColorLight = Colors().subtleColorLight
     let obviousColor = Colors().obviousColor
     let obviousColorLight = Colors().obviousColorLight
-    
-   private func configureTapGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.handleTap))
-    }
-    
-    @objc func handleTap() {
-    //line below copy and place in any buttons 
-        view.endEditing(true)
-    }
-
-    
     
     //clear text fiels
     func clearField(_ field: UITextField) {
@@ -204,6 +185,10 @@ class ViewController: UIViewController {
         subTypeThree.isHidden = false
         subTypeFour.isHidden = false
         subTypeFive.isHidden = false
+        
+        checkDataButton.isHidden = false
+        generatePassButton.isHidden = true
+        populateDataButton.isHidden = false
     }
     
     //updates formatting when Guest is selected
@@ -486,6 +471,45 @@ class ViewController: UIViewController {
         
     }
     
+    //check whether a particular field is complete given that it is enabled
+    func isDataComplete(in field: UITextField) -> Bool  {
+        if field.isUserInteractionEnabled == true && (field.text == "" || field.text == "DD/MM/YYYY" || field.text ==
+            "###-##-####" || field.text ==
+             "######") { return false}
+        return true
+    }
+    
+    
+        //check whether all enabled fields are complete
+    func  checkAllRequiredDataIsComplete() throws  {
+         guard isDataComplete (in: firstNameField)  else {throw EntrantInformationError.firstNameMissing }
+         guard isDataComplete (in: lastNameField)  else {throw EntrantInformationError.lastNameMissing }
+         guard isDataComplete (in: cityField)  else {throw EntrantInformationError.cityMissing }
+         guard isDataComplete (in: zipField)  else {throw EntrantInformationError.zipCodeMissing }
+         guard isDataComplete (in: streetAddressField)  else {throw EntrantInformationError.streetAddressMissing }
+         guard isDataComplete (in: stateField)  else {throw EntrantInformationError.stateMissing }
+         guard isDataComplete (in: ssnField)  else {throw EntrantInformationError.socialSecurityNumberMissing }
+         guard isDataComplete (in: dobField)  else {throw EntrantInformationError.dateOfBirthMissing }
+         guard isDataComplete (in: projectField)  else {throw EntrantInformationError.projectNumberMissing }
+         guard isDataComplete (in: companyField)  else {throw EntrantInformationError.companyMissing }
+        
+        }
+    
+    //show alert message if infrormation is incomplete
+    
+    func generateAlertForMisingData() {
+        // create the alert
+        let alert = UIAlertController(title: "Data incomplete", message: "Please complete all highlighted data fields.", preferredStyle: UIAlertController.Style.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+
     
    //ACTIONS
     
@@ -600,13 +624,27 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func checkData(_ sender: Any) {
+        do {try checkAllRequiredDataIsComplete()
+            checkDataButton.isHidden = true
+            populateDataButton.isHidden = true
+            generatePassButton.isHidden = false
+            disableAllFields()
+        } catch {print( "information incomplete")
+            generateAlertForMisingData()}
+
+    }
+    
+    
     @IBAction func generatePass(_ sender: Any) {
+       
         createCurrentEntrant()
-       // currentEntrant.validateEntrantInformation()
         currentPass = currentEntrant.generatePass()
     
         performSegue(withIdentifier: "send", sender: self)
-    }
+            
+        }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! SecondViewController
@@ -620,13 +658,6 @@ class ViewController: UIViewController {
     
 
 
-//allows keyboard to be dismissed when user hits 'return'
-extension ViewController : UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-}
 
 
 

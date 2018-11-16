@@ -73,14 +73,14 @@
                                 <rect key="frame" x="20" y="1176" width="984" height="90"/>
                                 <subviews>
                                     <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rN9-Z6-BBq">
-                                        <rect key="frame" x="0.0" y="0.0" width="488" height="90"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="322.5" height="90"/>
                                         <color key="backgroundColor" red="0.1207405456" green="0.17599254619999999" blue="0.31821065990000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="90" id="0VK-UD-yG5"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="oPr-vI-TAJ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
-                                        <state key="normal" title="Generate Pass">
+                                        <state key="normal" title="View Pass">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -88,8 +88,19 @@
                                             <segue destination="W3b-bN-8o0" kind="presentation" identifier="send" id="ecy-3G-gtz"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGm-5t-dAL">
+                                        <rect key="frame" x="330.5" y="0.0" width="323" height="90"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                        <state key="normal" title="Generate Pass">
+                                            <color key="titleColor" red="0.1207405456" green="0.17599254619999999" blue="0.31821065990000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FXy-e9-MFl"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4H-Wj-flL">
-                                        <rect key="frame" x="496" y="0.0" width="488" height="90"/>
+                                        <rect key="frame" x="661.5" y="0.0" width="322.5" height="90"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="90" id="IxF-pu-9jj"/>
@@ -417,6 +428,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="checkDataButton" destination="CGm-5t-dAL" id="Zvr-B2-ZlE"/>
                         <outlet property="cityField" destination="ZZH-dE-86D" id="lGo-zV-eHR"/>
                         <outlet property="cityLabel" destination="u2Z-i0-P28" id="uJu-qK-YG2"/>
                         <outlet property="companyField" destination="IKD-j0-OHH" id="9hw-e4-qRa"/>
@@ -481,10 +493,10 @@
                                 <rect key="frame" x="30" y="136" width="964" height="1030"/>
                                 <subviews>
                                     <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cce-UA-slP">
-                                        <rect key="frame" x="20" y="0.0" width="924" height="323"/>
+                                        <rect key="frame" x="20" y="0.0" width="924" height="323.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="V9U-RB-vTP">
-                                                <rect key="frame" x="320.5" y="14.5" width="283.5" height="294"/>
+                                                <rect key="frame" x="320.5" y="15" width="283.5" height="294"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entrant Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ht5-Wq-4qT">
                                                         <rect key="frame" x="0.0" y="0.0" width="283.5" height="54"/>
@@ -526,28 +538,28 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="orh-0h-DNK">
-                                        <rect key="frame" x="20" y="353" width="924" height="324"/>
+                                        <rect key="frame" x="20" y="353.5" width="924" height="323"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="46" translatesAutoresizingMaskIntoConstraints="NO" id="z2H-oQ-pk7">
-                                                <rect key="frame" x="20" y="30" width="884" height="264"/>
+                                                <rect key="frame" x="20" y="30" width="884" height="227"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Access Testing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBn-Hk-MRe">
-                                                        <rect key="frame" x="0.0" y="0.0" width="884" height="57.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="884" height="45"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                                         <color key="textColor" red="0.1207405456" green="0.17599254619999999" blue="0.31821065990000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm the pass has the expected level of access when swiped at kiosk" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKN-Vt-e2T">
-                                                        <rect key="frame" x="0.0" y="103.5" width="884" height="57"/>
+                                                        <rect key="frame" x="0.0" y="91" width="884" height="45"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                         <color key="textColor" red="0.1207405456" green="0.17599254619999999" blue="0.31821065990000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="kHS-yG-1Iq">
-                                                        <rect key="frame" x="0.0" y="206.5" width="884" height="57.5"/>
+                                                        <rect key="frame" x="0.0" y="182" width="884" height="45"/>
                                                         <subviews>
                                                             <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJO-ci-7Lr">
-                                                                <rect key="frame" x="0.0" y="0.0" width="274.5" height="57.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="274.5" height="45"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                                                                 <state key="normal" title="Area Access">
@@ -558,7 +570,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZT-Uz-17E">
-                                                                <rect key="frame" x="304.5" y="0.0" width="275" height="57.5"/>
+                                                                <rect key="frame" x="304.5" y="0.0" width="275" height="45"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                                                                 <state key="normal" title="Ride Access">
@@ -569,7 +581,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDQ-ck-54D">
-                                                                <rect key="frame" x="609.5" y="0.0" width="274.5" height="57.5"/>
+                                                                <rect key="frame" x="609.5" y="0.0" width="274.5" height="45"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                                                                 <state key="normal" title="Discount Access">
@@ -594,10 +606,10 @@
                                         </constraints>
                                     </view>
                                     <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mCl-mB-U97">
-                                        <rect key="frame" x="20" y="707" width="924" height="323"/>
+                                        <rect key="frame" x="20" y="706.5" width="924" height="323.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ta-KA-hg4">
-                                                <rect key="frame" x="30" y="30" width="864" height="263"/>
+                                                <rect key="frame" x="30" y="30" width="864" height="32.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>

@@ -31,6 +31,8 @@ enum EntrantInformationError : Error {
     case socialSecurityNumberMissing
     case socialSecurityNumberNotNeeded 
     case dateOfBirthMissing
+    case companyMissing
+    case projectNumberMissing
 }
 
 //define the data held by a pass
@@ -65,9 +67,7 @@ class Entrant {
         return DiscountAccess(discountOnFood: 0.0, discountOnMerchandise: 0.0)
     }
     
-    func validateEntrantInformation() {
-        
-    }
+    
     
     func generatePass() -> EntrantPass {
         return EntrantPass(areaAccess: self.areaAccess(), rideAccess: self.rideAccess(), discountAccess: self.discountAccess(), information: nil, position: nil, dateOfVendorVisit: nil, vendorCompany: nil, projectNumber: nil)
